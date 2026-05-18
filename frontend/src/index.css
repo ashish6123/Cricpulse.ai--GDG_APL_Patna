@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-grotesk: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* =============================================
+   ROOT & COLOR SYSTEM
+   ============================================= */
+:root {
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  --neon-red: #ff2d55;
+  --neon-gold: #ffd60a;
+  --neon-indigo: #7c6bff;
+  --neon-emerald: #00ff87;
+  --neon-cyan: #00d4ff;
+  --stadium-dark: #05070f;
+  --panel-bg: rgba(8, 12, 28, 0.85);
+}
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: rgba(5, 7, 15, 0.5); }
+::-webkit-scrollbar-thumb { background: rgba(124, 107, 255, 0.3); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124, 107, 255, 0.6); }
+
+/* =============================================
+   GLASS MORPHISM PANELS
+   ============================================= */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(15, 20, 45, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(15, 20, 45, 0.7);
+  border-color: rgba(124, 107, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.glass-input {
+  background: rgba(5, 7, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+}
+
+.glass-input:focus {
+  background: rgba(5, 7, 15, 0.9);
+  border-color: rgba(124, 107, 255, 0.7);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 107, 255, 0.15), 0 0 20px rgba(124, 107, 255, 0.1);
+}
+
+/* =============================================
+   NEON GLOW SYSTEM
+   ============================================= */
+.glow-indigo  { box-shadow: 0 0 30px -5px rgba(124, 107, 255, 0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+.glow-red     { box-shadow: 0 0 30px -5px rgba(255, 45, 85, 0.25), inset 0 1px 0 rgba(255,255,255,0.05); }
+.glow-gold    { box-shadow: 0 0 30px -5px rgba(255, 214, 10, 0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+.glow-emerald { box-shadow: 0 0 30px -5px rgba(0, 255, 135, 0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+.glow-cyan    { box-shadow: 0 0 30px -5px rgba(0, 212, 255, 0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+.glow-rose    { box-shadow: 0 0 30px -5px rgba(244, 63, 94, 0.25), inset 0 1px 0 rgba(255,255,255,0.05); }
+.glow-amber   { box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+
+/* =============================================
+   UNIQUE ANIMATIONS — Not found in any template
+   ============================================= */
+
+/* Live pulse indicator */
+@keyframes live-pulse {
+  0%   { transform: scale(0.85); opacity: 0.5; box-shadow: 0 0 0 0 rgba(255, 45, 85, 0.8); }
+  70%  { transform: scale(1);    opacity: 1;   box-shadow: 0 0 0 8px rgba(255, 45, 85, 0); }
+  100% { transform: scale(0.85); opacity: 0.5; box-shadow: 0 0 0 0 rgba(255, 45, 85, 0); }
+}
+.animate-live-pulse { animation: live-pulse 2s infinite; }
+
+/* Scanning radar sweep for win probability */
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-radar { animation: radar-sweep 3s linear infinite; }
+
+/* Data stream — moving scanlines effect */
+@keyframes scan-line {
+  0%   { transform: translateY(-100%); opacity: 0.8; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+.scanline {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(124, 107, 255, 0.4), transparent);
+  animation: scan-line 4s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Neon text flicker */
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.6; }
+}
+.animate-neon-flicker { animation: neon-flicker 5s infinite; }
+
+/* Floating for cards */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+/* Typewriter cursor blink */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.animate-cursor { animation: cursor-blink 1s step-end infinite; }
+
+/* Score pop — bounces in when score updates */
+@keyframes score-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.18); color: #ffd60a; }
+  100% { transform: scale(1); }
+}
+.animate-score-pop { animation: score-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+/* Slide up entrance for cards */
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.animate-slide-up { animation: slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+/* Viewport shake for wickets */
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-5px, -3px) rotate(-0.4deg); }
+  20%, 40%, 60%, 80% { transform: translate(5px, 3px) rotate(0.4deg); }
+}
+.shake-active { animation: shake 0.45s ease-in-out; }
+
+/* Pulse ring for alerts */
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient text shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, #7c6bff, #ff2d55, #ffd60a, #00ff87, #7c6bff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Ball counter entrance */
+@keyframes ball-pop {
+  0%   { transform: scale(0) rotate(-30deg); opacity: 0; }
+  70%  { transform: scale(1.15) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.animate-ball-pop { animation: ball-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+/* Data stream lines for background */
+@keyframes data-stream {
+  0%   { opacity: 0; transform: scaleY(0); }
+  50%  { opacity: 0.6; transform: scaleY(1); }
+  100% { opacity: 0; transform: scaleY(0); }
+}
+
+/* =============================================
+   CRICKET STADIUM BACKGROUND PATTERN
+   ============================================= */
+.bg-stadium {
+  background-color: #05070f;
+  background-image:
+    /* Outer boundary circle */
+    radial-gradient(circle at 50% 50%, rgba(124, 107, 255, 0.03) 0%, transparent 65%),
+    /* Fine grid */
+    linear-gradient(rgba(124,107,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,107,255,0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* =============================================
+   TICKER TAPE — Live events scrolling
+   ============================================= */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-track { animation: ticker-scroll 35s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+
+/* =============================================
+   COMPONENT UTILITIES
+   ============================================= */
+
+/* Neon border that pulses */
+.border-neon {
+  border: 1px solid rgba(124, 107, 255, 0.4);
+  box-shadow: 0 0 12px rgba(124, 107, 255, 0.15), inset 0 0 12px rgba(124, 107, 255, 0.05);
+}
+
+/* Premium button base */
+.btn-neon {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-neon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.08) 50%, transparent 70%);
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+.btn-neon:hover::before { left: 120%; }
+
+/* Live score badge */
+.badge-live {
+  background: linear-gradient(135deg, rgba(255, 45, 85, 0.2), rgba(255, 45, 85, 0.05));
+  border: 1px solid rgba(255, 45, 85, 0.4);
+  color: #ff6b8a;
+}
+
+/* Team color tokens */
+.team-rcb  { --team-color: #dc2626; --team-light: #fca5a5; }
+.team-csk  { --team-color: #d97706; --team-light: #fde68a; }
+.team-mi   { --team-color: #1d4ed8; --team-light: #93c5fd; }
+.team-kkr  { --team-color: #7c3aed; --team-light: #c4b5fd; }
+.team-srh  { --team-color: #ea580c; --team-light: #fdba74; }
+.team-gt   { --team-color: #0891b2; --team-light: #67e8f9; }
+.team-dc   { --team-color: #1e40af; --team-light: #bfdbfe; }
+.team-rr   { --team-color: #be185d; --team-light: #f9a8d4; }
+.team-pbks { --team-color: #b91c1c; --team-light: #fca5a5; }
+.team-lsg  { --team-color: #0369a1; --team-light: #7dd3fc; }
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+.font-display { font-family: var(--font-outfit); }
+.font-ui      { font-family: var(--font-grotesk); }
+.font-code    { font-family: var(--font-mono); }
+
+/* =============================================
+   LAYOUT HELPERS
+   ============================================= */
+.section-gap { gap: clamp(1rem, 2vw, 1.5rem); }
+
+/* Frosted separator */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+}

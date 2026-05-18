@@ -1,0 +1,13 @@
+{
+  "name": "CricPulse AI",
+  "short_name": "CricPulse",
+  "description": "AI-powered second-screen cricket companion",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070f",
+  "theme_color": "#7c6bff",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "64x64", "type": "image/x-icon" }
+  ]
+}
