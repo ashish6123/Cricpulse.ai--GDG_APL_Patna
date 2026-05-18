@@ -19,6 +19,15 @@
 
 ---
 
+## 📸 App Gallery
+
+*(To add screenshots here, go to your GitHub repository, click the pencil icon ✏️ on `README.md`, and **drag-and-drop your screenshot images directly into this section!** GitHub will automatically upload and format them for you.)*
+
+<!-- 🖼️ DRAG AND DROP SCREENSHOTS BELOW THIS LINE 🖼️ -->
+
+
+---
+
 ## ✨ Feature Matrix
 
 | Feature | Status | Description |
