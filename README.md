@@ -2,6 +2,15 @@
 ### GDG Agentic Premier League — Patna (May 18th, 2026) 🏆
 **A Second-Screen Sports Intelligence Platform**
 
+<p align="left">
+  <a href="https://cricpulse-frontend-620647928221.asia-south1.run.app">
+    <img src="https://img.shields.io/badge/Live_Demo-Play_Now-orange?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Live Demo" />
+  </a>
+  <a href="https://cricpulse-backend-620647928221.asia-south1.run.app/health">
+    <img src="https://img.shields.io/badge/GCP_Backend-API_Status-blue?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Backend Health Status" />
+  </a>
+</p>
+
 > **Problem Statement:** *Design a system that enhances how users experience live sporting events beyond passive viewing. The solution should create meaningful second-screen interactions during matches, enabling fans to engage with key moments, participate in real-time activities, and feel more connected to the game as it unfolds.*
 
 **CricPulse AI** is an AI-powered live cricket companion that transforms passive viewing into an immersive, interactive experience through multi-agent AI commentary, real-time predictions, fan rivalry rooms, and autonomous sports storytelling.
@@ -19,7 +28,31 @@
 
 ---
 
+## 📸 App Gallery
 
+Here is a visual tour of the **CricPulse AI** second-screen companion:
+
+<p align="center">
+  <img src="assets/dashboard.png" alt="CricPulse AI Main Dashboard" width="90%" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+  <br>
+  <em>Figure 1: The Main Interactive Dashboard featuring live ticker, real-time simulated commentary, and 5 distinct AI agent commentators.</em>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="assets/components.png" alt="CricPulse AI Detailed Components" width="90%" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+  <br>
+  <em>Figure 2: The Agent Thoughts Terminal (displaying internal reasoning of Gemini-powered agents), Rivalry Rooms (fan chats & banter), and the Predict-the-Ball Arena.</em>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="assets/fullpage.png" alt="CricPulse AI Full Page Overview" width="90%" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+  <br>
+  <em>Figure 3: Full page layout demonstrating responsive grid architecture designed for second-screen interactions.</em>
+</p>
 
 
 
