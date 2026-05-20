@@ -30,6 +30,16 @@
 
 ## 📸 App Gallery
 
+### 🎥 Video Walkthrough
+Here is an interactive walkthrough showing the CricPulse AI companion in action:
+
+<p align="center">
+  <video src="assets/recording.mp4" width="90%" controls style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"></video>
+</p>
+
+<br>
+
+### 🖼️ Screenshots
 Here is a visual tour of the **CricPulse AI** second-screen companion:
 
 <p align="center">
